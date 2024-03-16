@@ -42,8 +42,8 @@ class Console extends RWSManagedConsole {
         let opts = {
             projectName,
             pubUrl: '/',
-            pubDirAbs: path.resolve(targetDir, 'public'),
-            buildDir: path.resolve(targetDir, 'public', 'js'),
+            pubDirAbs: path.resolve(targetDir, 'frontend','public'),
+            buildDir: path.resolve(targetDir, 'frontend', 'public', 'js'),
             domain: 'localhost',
             httpPort: 1337,
             wsPort: 1338,
@@ -94,6 +94,7 @@ class Console extends RWSManagedConsole {
 
 
         toPopulateEnvVars.forEach((envVarSource) => {
+            envVarSource = path.resolve(envVarSource);
             const sourceFileContent = fs.readFileSync(envVarSource, 'utf-8');
             let replacedFileContent = sourceFileContent;
             Object.keys(opts).forEach((key) => {
