@@ -1,0 +1,15 @@
+/*@save*/
+
+@import '~alertifyjs/build/css/themes/default.min.css';
+@import '~alertifyjs/build/css/alertify.min.css';
+
+
+@import "_var_defs";
+
+body{
+    background-color: var(--alt_color);
+
+    color: #FFF;
+    font-size: 17px;
+    margin: 0;
+}

@@ -10,6 +10,9 @@
         "build": "webpack --config webpack.config.js --output-path ./dist",
         "run": "node build/rws.manager.js"
     },
+    "bin": {
+        "rws": "./exec/console.js"
+    },
     "author": "skygate",
     "license": "ISC",
     "dependencies": {        
@@ -42,6 +45,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/papablack/rws-client.git"
+        "url": "git+https://github.com/papablack/rws-project-creator.git"
     }
 }
