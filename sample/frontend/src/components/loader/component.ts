@@ -1,4 +1,4 @@
-import { RWSViewComponent } from 'rws-js-client';
+import { RWSViewComponent } from '@rws-framework/client';
 import {css, html} from '@microsoft/fast-element';
 const styles = css`.loader {
     width: 74px;

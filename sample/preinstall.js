@@ -20,12 +20,10 @@ function removeDirectory(dirPath) {
 }
 
 function beforeInstall(){
-    if(process.env.warlock_NO_LIFECYCLE === 'Yes' ){
-        console.error('warlock ignoring preinstall');
+    if(process.env.NO_RWS_LIFECYCLE === 'Yes' ){
+        console.error('RWS setup ignoring preinstall');
         return;
     }
-
-    removeDirectory(`${currentDir}/backend/node_modules`);
 }
 
 beforeInstall();

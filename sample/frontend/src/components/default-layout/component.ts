@@ -1,7 +1,7 @@
-import { RWSViewComponent, RWSView, observable, _ROUTING_EVENT_NAME, IRoutingEvent } from 'rws-js-client';
+import { RWSViewComponent, RWSView, observable, _ROUTING_EVENT_NAME, IRoutingEvent } from '@rws-framework/client';
 
 import EV from '../../events/events';
-import { RouterComponent } from 'rws-js-client/src/components/router/component';
+import { RouterComponent } from '@rws-framework/client/src/components/router/component';
 
 RouterComponent;
 

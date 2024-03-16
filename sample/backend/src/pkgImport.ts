@@ -1,4 +1,4 @@
-import { ILLMChunk } from 'rws-js-server';
+import { ILLMChunk } from '@rws-framework/server';
 
 export {
     ILLMChunk

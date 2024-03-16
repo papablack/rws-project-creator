@@ -1,4 +1,4 @@
-import {RWSHTTPRoutingEntry} from 'rws-js-server';
+import {RWSHTTPRoutingEntry} from '@rws-framework/server';
 
 export default (): RWSHTTPRoutingEntry[] => {
     return [    

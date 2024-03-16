@@ -1,4 +1,4 @@
-import { ICmdParams, RWSCommand, ConsoleService } from 'rws-js-server';
+import { ICmdParams, RWSCommand, ConsoleService } from '@rws-framework/server';
 
 const {log, color} = ConsoleService; 
 

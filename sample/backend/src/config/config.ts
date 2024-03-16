@@ -1,4 +1,4 @@
-import { IAppConfig } from 'rws-js-server';
+import { IAppConfig } from '@rws-framework/server';
 
 import JWTUser from '../user/model';
 import { getModels } from '../models';

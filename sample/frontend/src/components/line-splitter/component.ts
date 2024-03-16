@@ -1,4 +1,4 @@
-import { RWSView, RWSViewComponent, observable, attr } from 'rws-js-client';
+import { RWSView, RWSViewComponent, observable, attr } from '@rws-framework/client';
 
 import { html, ViewTemplate } from '@microsoft/fast-element';
 

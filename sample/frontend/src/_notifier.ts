@@ -1,4 +1,4 @@
-import { NotifyUiType, NotifyLogType } from 'rws-js-client';
+import { NotifyUiType, NotifyLogType } from '@rws-framework/client';
 //@ts-expect-error no-types
 import alertify from 'alertifyjs';
 

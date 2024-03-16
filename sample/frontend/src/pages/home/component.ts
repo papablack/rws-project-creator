@@ -1,4 +1,4 @@
-import { RWSViewComponent, RWSView } from 'rws-js-client';
+import { RWSViewComponent, RWSView } from '@rws-framework/client';
 
 
 @RWSView('page-home')

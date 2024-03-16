@@ -1,4 +1,4 @@
-import { RWSSocket, Socket } from 'rws-js-server';
+import { RWSSocket, Socket } from '@rws-framework/server';
 
 class PingSocket extends RWSSocket {
     handleConnection(socket: Socket, routeName: string): Socket {

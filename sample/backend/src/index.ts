@@ -1,4 +1,4 @@
-import { serverInit, ConsoleService } from 'rws-js-server';
+import { serverInit, ConsoleService } from '@rws-framework/server';
 import config from './config/config';
 
 // import path from 'path';

@@ -1,4 +1,4 @@
-import { RWSService } from 'rws-js-client';
+import { RWSService } from '@rws-framework/client';
 import moment, { Moment, unitOfTime } from 'moment';
 import 'moment/locale/en-gb';
 

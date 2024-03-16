@@ -1,4 +1,4 @@
-import { RWSannotations, RWSController, IRequestParams } from 'rws-js-server';
+import { RWSannotations, RWSController, IRequestParams } from '@rws-framework/server';
 
 const { Route } = RWSannotations.routingAnnotations;
 

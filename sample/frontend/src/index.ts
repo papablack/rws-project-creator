@@ -1,4 +1,4 @@
-import RWSClient, { RWSContainer } from 'rws-js-client';
+import RWSClient, { RWSContainer } from '@rws-framework/client';
 
 
 import './styles/main.scss';

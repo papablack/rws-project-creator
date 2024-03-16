@@ -1,4 +1,4 @@
-import { RWSannotations, RWSModel } from 'rws-js-server';
+import { RWSannotations, RWSModel } from '@rws-framework/server';
 
 import IMessage from './interfaces/IMessage';
 import 'reflect-metadata';
