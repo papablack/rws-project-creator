@@ -5,9 +5,20 @@
     "description": "",
     "bin": {
         "rws-create": "./exec/console.js"
-    },
-    "author": "skygate",
+    },    
+    "keywords": [
+        "frontend",
+        "rws",
+        "client",
+        "typescript"
+    ],
+    "author": "papablack",
     "license": "ISC",
+    "bugs": {
+    "url": "https://github.com/papablack/rws-project-creator/issues"
+    },
+    "homepage": "https://github.com/papablack/rws-project-creator#readme",
+    
     "dependencies": {        
         "dotenv": "^16.3.1",        
         "nodemon": "^1.12.1",
@@ -38,6 +49,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/papablack/rws-client.git"
+        "url": "git+https://github.com/papablack/rws-project-creator.git"
     }
 }
