@@ -1,6 +1,6 @@
 const path = require('path');
 
-const  RWSWebpackWrapper  = require('rws-js-server/rws.webpack.config');
+const  RWSWebpackWrapper  = require('@rws-framework/server/rws.webpack.config');
 
 const executionDir = process.cwd();
 
