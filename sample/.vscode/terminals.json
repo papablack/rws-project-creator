@@ -1,0 +1,17 @@
+{
+  "autorun": false,
+  "terminals": [
+    {
+      "name": "Back",
+      "description": "Backend dev run",
+      "focus": false,
+      "command": "cd backend && yarn dev"
+    },
+    {
+      "name": "Front",
+      "description": "Frontend dev run",
+      "focus": false,
+      "command": "cd frontend && yarn watch"
+    }
+  ]
+}

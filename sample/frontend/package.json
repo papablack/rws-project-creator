@@ -22,7 +22,7 @@
         "partial-json-parser": "^1.2.2",
         "path": "^0.12.7",
         "resolve-url-loader": "^5.0.0",
-        "@rws-framework/client": "^2.0.8",
+        "@rws-framework/client": "*",
         "sass": "^1.69.5",
         "sass-loader": "^13.3.2",
         "socket.io-client": "^4.7.2",
