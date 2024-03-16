@@ -1,0 +1,41 @@
+version: '3.3'
+services:    
+    node_dev_warlock:
+        build: node
+        env_file:
+            - ./.env        
+        container_name: node_dev_warlock
+        # restart: always
+        ports:
+            - '${APP_PORT}:${APP_PORT}'   
+            - '${WS_PORT}:${WS_PORT}'   
+            - 8888:8888   
+        volumes:
+            - ../../:/app
+
+    # node_front_dev_warlock:
+    #     build: node_front
+    #     env_file:
+    #         - ./.env        
+    #     container_name: node_front_dev_warlock
+    #     # restart: always        
+    #     volumes:
+    #         - ../../:/app
+
+    mongodb_dev_warlock:
+        ports:
+            - '27017:27017'
+        container_name: mongodb_dev_warlock
+        restart: always
+        logging:
+            options:
+                max-size: 1g
+        env_file:
+          - ./.env    
+        build: mongo
+        volumes:
+            - mongo-data:/data/db        
+
+volumes:
+  mongo-data:  ~        
+  dev_junctioned: ~
