@@ -1,6 +1,6 @@
 {
     "name": "@rws-framework/project-creator",
-    "version": "0.2.4",
+    "version": "0.2.5",
     "private": false,
     "description": "",
     "bin": {
@@ -25,8 +25,8 @@
         "npm-run-all": "^4.1.1",    
         "pm2": "^5.3.0",        
         "reflect-metadata": "^0.2.1",
-        "rws-js-server": "*",
-        "rws-js-client": "*",
+        "@rws-framework/server": "*",
+        "@rws-framework/client": "*",
         "ts-transformer-keys": "^0.4.4",
         "tsconfig-paths-webpack-plugin": "^4.1.0",
         "typescript": "^5.3.3",
