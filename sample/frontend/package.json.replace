@@ -1,5 +1,5 @@
 {
-    "name": "rws_sample_project_front",
+    "name": "[[projectName]]_front",
     "version": "1.0.0",
     "description": "",
     "scripts": {

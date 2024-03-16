@@ -1,0 +1,8 @@
+window._RWS_CFG = {
+    backendUrl: '[[protocol]]://[[domain]]:1337',
+    wsUrl: '[[protocol]]://[[domain]]:1338',
+    transports: ['websocket'],
+    routing_enabled: [[frontRouting]],
+    parted: true,
+    splitFileDir: '[[pubUrl]]js'
+};

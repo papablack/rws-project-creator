@@ -1,10 +1,12 @@
 const _tools = require('@rws-framework/server/_tools');
+const readline = require('readline');
 
 const rwsError = console.error;
 const rwsLog = console.error;
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
+const chalk = require('chalk');
 
 function getArgs(procArgs){
     const command2map = procArgs[2];
@@ -54,7 +56,53 @@ function getArgs(procArgs){
 }
 
 class RWSManagedConsole { 
+    static _askForYn(question, rl) {
+        return new Promise((yNResolve, yNReject) => {
+            if(!rl){
+                rl = readline.createInterface({
+                    input: process.stdin,
+                    output: process.stdout
+                });
+            }
+            rl.question(question + ' (y/n): ', (answer) => {
+                if (answer === 'y') {
+                    yNResolve(true); // Resolved positively
+                } else {
+                    yNResolve(false); // Immediate resolve for "no" answer
+                    rl.close();
+                }
+            });
+        });
+    }
 
+    static _askFor(question, defaultVal = null, parser = (txt) => txt, yN = true) {
+        return new Promise(async (resolve, reject) => {
+            const rl = readline.createInterface({
+                input: process.stdin,
+                output: process.stdout
+            });
+
+            const questionAsked = () => {
+                rl.question(question + ': ', (answer) => {
+                    resolve(parser(answer));
+                    rl.close();
+                });
+            }
+
+            if (yN) {
+                const ynResult = await this._askForYn('Do you want to set "' + question + '"?', rl);
+
+                if(!ynResult){
+                    console.log(chalk.red('Canceled'));
+                    rl.close();
+                    resolve(defaultVal);
+                    return;
+                }                
+            }
+
+            questionAsked();
+        });
+    }
 }
 
 

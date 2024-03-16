@@ -1,5 +1,5 @@
 {
-    "name": "rws_sample_project",
+    "name": "[[projectName]]_project",
     "version": "1.0.0",
     "description": "",
     "scripts": {

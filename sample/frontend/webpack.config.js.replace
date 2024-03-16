@@ -14,7 +14,7 @@ module.exports = RWSWebpackWrapper({
   executionDir: executionDir,
   publicDir:  path.resolve(executionDir, 'public'),
   outputDir:  path.resolve(executionDir, 'public', 'js'),
-  outputFileName: 'warlock.client.js',
+  outputFileName: 'sample.client.js',
   parted: true,
   copyToDir: {
     './public/js/' : [

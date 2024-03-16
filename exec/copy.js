@@ -70,7 +70,7 @@ module.exports = async (copyList = {}) => {
     Object.keys(copyList).forEach((targetPath) => {
       const sources = copyList[targetPath];      
       sources.forEach((sourcePath) => {
-        console.log(`${chalk.yellow('[RWS]')} Copied "${chalk.blue(sourcePath)}" to "${targetPath}"`)
+        console.log(`${chalk.yellow('[RWS]')} Copied "${chalk.blue(sourcePath)}" to "${chalk.blue(targetPath)}"`)
       });
     });
 
