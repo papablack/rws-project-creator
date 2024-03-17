@@ -5,7 +5,6 @@ const RWSConsole = require('@rws-framework/console');
 const rwsError = console.error;
 const rwsLog = console.log;
 const getArgs = RWSConsole.rwsArgsHelper;
-const { runCommand } = RWSConsole.rwsShell;
 
 const { command, args, webpackPath } = getArgs(process.argv);
 
