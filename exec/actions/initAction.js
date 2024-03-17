@@ -12,7 +12,9 @@ const rwsLog = console.log;
 const { copyFiles } = RWSConsole.rwsFS;
 const rwsError = console.error;
 
-module.exports = async function (args) {
+module.exports = async function (output) {  
+    const args = output.rawArgs || [];  
+
     if (!args.length) {
         throw new Error('Project name needed');
     }
@@ -107,4 +109,6 @@ module.exports = async function (args) {
     console.log(chalk.blue('Environment prepared. Running install scripts on location:'));
 
     await runCommand('yarn', targetDir);
+
+    return output.program;
 }
