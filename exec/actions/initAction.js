@@ -12,14 +12,16 @@ const rwsLog = console.log;
 const { copyFiles } = RWSConsole.rwsFS;
 const rwsError = console.error;
 
-module.exports = async function (args, targetDir) {
-    rwsLog('act', args, targetDir)
+module.exports = async function (args) {
+    rwsLog('act', args)
 
     if (!args.length) {
         throw new Error('Project name needed');
     }
 
     const projectName = args[0];
+
+    let targetDir = process.cwd();
 
     if (args.length > 1) {
         targetDir = args[1];
@@ -77,6 +79,7 @@ module.exports = async function (args, targetDir) {
     opts.protocol = opts.isSSL ? 'https' : 'http';
 
     const toPopulateEnvVars = [
+        `${targetDir}/package.json.replace`,
         `${targetDir}/frontend/package.json.replace`,
         `${targetDir}/frontend/public/js/cfg/cfg.js.replace`,
         `${targetDir}/frontend/webpack.config.js.replace`,
@@ -94,7 +97,7 @@ module.exports = async function (args, targetDir) {
         Object.keys(opts).forEach((key) => {
             const option = opts[key];
             replacedFileContent = replacedFileContent.replace(new RegExp('\\[\\[' + key + '\\]\\]', 'g'), option);            });
-
+            console.log(envVarSource, envVarSource.replace('.replace', ''));
         fs.unlinkSync(envVarSource);
         fs.writeFileSync(envVarSource.replace('.replace', ''), replacedFileContent);
     });

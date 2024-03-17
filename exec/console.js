@@ -1,26 +1,32 @@
 #!/usr/bin/env node
 
 const RWSConsole = require('@rws-framework/console');
-
+const path = require('path');
 const rwsError = console.error;
 const rwsLog = console.log;
 const getArgs = RWSConsole.rwsArgsHelper;
 
 const { command, args, webpackPath } = getArgs(process.argv);
-
-let Console = {};
-
-const initAction = require('./actions/initAction');
-Console = {...Console, initAction: initAction.bind(console)}
-
 const cmdKey = `${command}Action`;
 
+(async () => {    
+    let Console = {};
 
-if(!Object.keys(Console).includes(cmdKey)){
-    console.error(`No command executor "${cmdKey}" is defined`);
-    return;
-}
+    Console = {
+        ...Console, 
+        initAction: (await import(__dirname + '/actions/initAction.js')).default
+    }
 
-Console[command + 'Action'](args).then(() => {
+    console.log(Console);
+    
+
+    if(!Object.keys(Console).includes(cmdKey)){
+        console.error(`No command executor "${cmdKey}" is defined`);
+        return;
+    }
+
+    await Console[command + 'Action'](args);
     rwsLog(`\n[RWS Manager] Finished configuring.`)
-});
+})()
+
+
