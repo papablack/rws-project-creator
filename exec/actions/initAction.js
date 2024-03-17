@@ -13,8 +13,6 @@ const { copyFiles } = RWSConsole.rwsFS;
 const rwsError = console.error;
 
 module.exports = async function (args) {
-    rwsLog('act', args)
-
     if (!args.length) {
         throw new Error('Project name needed');
     }
@@ -29,10 +27,15 @@ module.exports = async function (args) {
 
     targetDir += `/${projectName}`;
 
+    if(fs.existsSync(targetDir)){
+        console.log(chalk.red(`Directory ${targetDir} already exists.`));
+        return;
+    }
+
     const copyset = {}
 
-    copyset[targetDir] = [path.resolve(__dirname, '..', '..', '/sample')]
-
+    copyset[targetDir] = [path.resolve(__dirname + '/../../sample')]
+ 
     copyFiles(copyset);
 
     let opts = {
@@ -97,7 +100,6 @@ module.exports = async function (args) {
         Object.keys(opts).forEach((key) => {
             const option = opts[key];
             replacedFileContent = replacedFileContent.replace(new RegExp('\\[\\[' + key + '\\]\\]', 'g'), option);            });
-            console.log(envVarSource, envVarSource.replace('.replace', ''));
         fs.unlinkSync(envVarSource);
         fs.writeFileSync(envVarSource.replace('.replace', ''), replacedFileContent);
     });

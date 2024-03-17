@@ -17,9 +17,6 @@ const cmdKey = `${command}Action`;
         initAction: (await import(__dirname + '/actions/initAction.js')).default
     }
 
-    console.log(Console);
-    
-
     if(!Object.keys(Console).includes(cmdKey)){
         console.error(`No command executor "${cmdKey}" is defined`);
         return;
