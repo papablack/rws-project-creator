@@ -31,7 +31,7 @@ module.exports = async function (args) {
 
     const copyset = {}
 
-    copyset[targetDir] = ['./sample']
+    copyset[targetDir] = [path.resolve(__dirname, '..', '..', '/sample')]
 
     copyFiles(copyset);
 
