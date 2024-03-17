@@ -1,5 +1,2 @@
-import backendRoutes from '../../backend/src/routing/routes';
-
-export {     
-    backendRoutes,  
-};
+import * as backendImports from '../../backend/src/frontendExport';
+export default backendImports;
