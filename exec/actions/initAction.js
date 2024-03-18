@@ -50,8 +50,10 @@ module.exports = async function (output) {
         wsPort: 1338,
         isSSL: 0,
         hasAuth: 0,
+        partedPrefix: 'rws',
         secretKey: uuid(),
-        frontRouting: 1
+        frontRouting: 1,
+        serverFilePrefix: 'rws'
     }
 
     const advConfig = await RWSManagedConsole._askForYn('Advanced (y) or Default (n) install', false);
@@ -66,6 +68,8 @@ module.exports = async function (output) {
         const wsPort = await RWSManagedConsole._askFor('WS Port', opts.wsPort, parseInt);
         const isSSL = parseInt(await RWSManagedConsole._askForYn('Is SSL', opts.isSSL));
         const hasAuth = parseInt(await RWSManagedConsole._askForYn('Has auth', opts.hasAuth));
+        const partedPrefix = await RWSManagedConsole._askFor('Parted component prefix', opts.partedPrefix);
+        const serverFilePrefix = await RWSManagedConsole._askFor('Server file prefix', opts.serverFilePrefix);
 
         opts = {
             ...opts,
@@ -75,7 +79,9 @@ module.exports = async function (output) {
             wsPort,
             isSSL,
             hasAuth,
-            pubUrl
+            pubUrl,
+            partedPrefix,
+            serverFilePrefix
         }
     }else{
         console.log(chalk.yellow('Default configuration procedure started with options: '),  opts);

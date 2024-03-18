@@ -10,5 +10,5 @@ module.exports = RWSWebpackWrapper({
   entry: `${executionDir}/src/index.ts`,
   executionDir: executionDir,  
   outputDir:  path.resolve(executionDir, 'build'),
-  outputFileName: 'rws.server.js'
+  outputFileName: '[[serverFilePrefix]].server.js'
 });
