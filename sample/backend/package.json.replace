@@ -4,7 +4,7 @@
     "description": "",
     "scripts": {
         "dev": "npm-run-all --parallel watch:transpile watch:run",
-        "watch:run": "nodemon \"./build/warlock.server.js\" --watch \"./build\"",
+        "watch:run": "nodemon \"./build/[[serverFilePrefix]].server.js\" --watch \"./build\"",
         "watch:transpile": "DEBUG=socket.io:server webpack --config webpack.config.js --watch",
         "build": "DEBUG=socket.io:server webpack --config webpack.config.js --output-path ./build",
         "start": "node build/[[serverFilePrefix]].server.js",
