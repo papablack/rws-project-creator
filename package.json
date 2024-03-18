@@ -1,6 +1,6 @@
 {
     "name": "@rws-framework/project-creator",
-    "version": "0.6.1",
+    "version": "0.6.2",
     "private": false,
     "description": "",
     "scripts": {
@@ -22,7 +22,7 @@
     },
     "homepage": "https://github.com/papablack/rws-project-creator#readme",
     "dependencies": {
-        "@rws-framework/console": "0.1.4",
+        "@rws-framework/console": "^0.1.5",
         "dotenv": "^16.3.1",
         "pm2": "^5.3.0"
     },
