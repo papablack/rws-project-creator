@@ -1,5 +1,5 @@
 const path = require('path');
-const tools = require('@rws-framework/console/src/tools/shell');
+const {rwsShell} = require('@rws-framework/console');
 const chalk = require('chalk');
 const currentDir = __dirname;
 
@@ -9,11 +9,11 @@ async function afterInstall(){
         return;
     }
 
-    await tools.runCommand("rws init", path.resolve(__dirname, 'backend'));
-    await tools.runCommand("yarn build", path.resolve(__dirname, 'backend'));
+    await rwsShell.runCommand("rws init", path.resolve(__dirname, 'backend'));
+    await rwsShell.runCommand("yarn build", path.resolve(__dirname, 'backend'));
 
-    await tools.runCommand("rws-client init", path.resolve(__dirname, 'backend'));
-    await tools.runCommand("yarn build", path.resolve(__dirname, 'frontend'));
+    await rwsShell.runCommand("rws-client init", path.resolve(__dirname, 'backend'));
+    await rwsShell.runCommand("yarn build", path.resolve(__dirname, 'frontend'));
 }
 
 afterInstall().then(() => {
