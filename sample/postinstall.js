@@ -1,5 +1,5 @@
 const path = require('path');
-const tools = require('@rws-framework/server/_tools');
+const tools = require('@rws-framework/console/src/tools/shell');
 const chalk = require('chalk');
 const currentDir = __dirname;
 
