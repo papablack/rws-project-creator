@@ -4,10 +4,11 @@
     "private": false,
     "description": "",
     "scripts": {
-        "preinstall": "node preinstall.js"        
+        "rws:create": "node ./dist/exec/console.js",
+        "preinstall": "node preinstall.js"
     },
     "bin": {
-        "rws-create": "./exec/console.js"
+        "rws-create": "./dist/exec/console.js"
     },
     "keywords": [
         "frontend",
@@ -22,11 +23,16 @@
     },
     "homepage": "https://github.com/papablack/rws-project-creator#readme",
     "dependencies": {
-        "@rws-framework/console": "^0.1.5",
+        "@rws-framework/console": "*",
+        "@rws-framework/console-vis": "*",
         "dotenv": "^16.3.1",
         "pm2": "^5.3.0"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "@types/react": "^18.2.67",
+        "tsc": "^2.0.4",
+        "typescript": "^5.4.2"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/papablack/rws-project-creator.git"
