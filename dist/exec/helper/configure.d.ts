@@ -1,17 +1,19 @@
 export interface Options {
-    projectName: string | null;
-    pubUrl: string | null;
-    pubDirAbs: string | null;
-    buildDir: string | null;
-    domain: string | null;
-    httpPort: number | null;
-    wsPort: number | null;
-    isSSL: number | null;
-    hasAuth: number | null;
-    partedPrefix: string | null;
-    secretKey: string | null;
-    frontRouting: number | null;
-    serverFilePrefix: string | null;
-    protocol: string | null;
+    projectName: string | null | undefined;
+    pubUrl: string | null | undefined;
+    pubDirAbs: string | null | undefined;
+    buildDir: string | null | undefined;
+    domain: string | null | undefined;
+    httpPort: number | null | undefined;
+    wsPort: number | null | undefined;
+    isSSL: number | null | undefined;
+    hasAuth: number | null | undefined;
+    partedPrefix: string | null | undefined;
+    secretKey: string | null | undefined;
+    frontRouting: number | null | undefined;
+    serverFilePrefix: string | null | undefined;
+    protocol: string | null | undefined;
+    declarationsRelPath: string | null | undefined;
+    importBackendCode: string | null | undefined;
 }
 export declare function populateEnvFiles(toPopulateEnvVars: string[], opts: Options): void;

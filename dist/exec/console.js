@@ -10,6 +10,11 @@ const packageExecDir = path_1.default.resolve(__dirname);
 const bootstrap = console_1.rwsCli.bootstrap(['init'], packageExecDir + '/actions');
 (async () => {
     bootstrap.run({
-        args: ['project_name', 'target_dir']
+        args: ['project_name', 'target_dir'],
+        options: [{
+                short: 'o',
+                long: 'override',
+                defaultValue: 'false'
+            }]
     });
 })();

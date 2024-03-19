@@ -1,4 +1,2 @@
-export default function (output: {
-    rawArgs?: string[];
-    program?: any;
-}): Promise<any>;
+import { IOutputOpts } from '@rws-framework/console';
+export default function (output: IOutputOpts): Promise<any>;

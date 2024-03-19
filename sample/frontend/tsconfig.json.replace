@@ -21,7 +21,7 @@
     },
     "include": [
       "src",          
-      "../node_modules/@rws-framework/client/declarations.d.ts",
+      "[[declarationsRelPath]]"
     ],  
     "exclude": [
       "../node_modules/@rws-framework/client/src/tests"    
