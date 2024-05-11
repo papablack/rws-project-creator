@@ -10,10 +10,10 @@ async function afterInstall(){
     }
 
     await rwsShell.runCommand("rws init", path.resolve(__dirname, 'backend'));
-    await rwsShell.runCommand("yarn build", path.resolve(__dirname, 'backend'));
+    await rwsShell.runCommand("npm run build", path.resolve(__dirname, 'backend'));
 
     await rwsShell.runCommand("rws-client init", path.resolve(__dirname, 'backend'));
-    await rwsShell.runCommand("yarn build", path.resolve(__dirname, 'frontend'));
+    await rwsShell.runCommand("npm run build", path.resolve(__dirname, 'frontend'));
 }
 
 afterInstall().then(() => {
