@@ -11,7 +11,6 @@ const configure_1 = require("../helper/configure");
 const ask_1 = require("../helper/ask");
 const console_vis_1 = require("@rws-framework/console-vis");
 const _defaults_1 = __importDefault(require("../helper/_defaults"));
-const packageExecDir = path_1.default.resolve(__dirname);
 const { runCommand } = console_1.rwsShell;
 const { copyFiles } = console_1.rwsFS;
 const _BUILD_MODES = {
@@ -106,7 +105,7 @@ async function default_1(output) {
         console.log(chalk_1.default.yellow('Default configuration procedure started with options: '), opts);
     }
     copyset[targetDir] = [path_1.default.resolve(console_1.rwsPath.findPackageDir(__dirname) + '/' + sourceRelDir)];
-    copyFiles(copyset, ignoredFiles);
+    copyFiles(copyset);
     (0, configure_1.populateEnvFiles)(toPopulateEnvVars, opts);
     await runCommand('yarn', targetDir);
     for (const callback of callbacks) {

@@ -5,6 +5,12 @@ const RWSWebpackWrapper  = require('@rws-framework/client/rws.webpack.config');
 
 const executionDir = process.cwd();
 
+const devServer = {
+  contentBase: path.join(__dirname, 'public'),
+    compress: false,
+    port: 666,
+};
+
 module.exports = RWSWebpackWrapper({
   dev: true,
   hot: false,
@@ -22,4 +28,5 @@ module.exports = RWSWebpackWrapper({
       './src/styles/compiled/main.css'
     ]
   },
+  devServer
 });
