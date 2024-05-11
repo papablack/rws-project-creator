@@ -2,14 +2,7 @@ const path = require('path');
 
 const RWSWebpackWrapper  = require('@rws-framework/client/rws.webpack.config');
 
-
 const executionDir = process.cwd();
-
-const devServer = {
-  contentBase: path.join(__dirname, 'public'),
-    compress: false,
-    port: 666,
-};
 
 module.exports = RWSWebpackWrapper({
   dev: true,
@@ -19,14 +12,14 @@ module.exports = RWSWebpackWrapper({
   entry: `${executionDir}/src/index.ts`,
   executionDir: executionDir,
   publicDir:  path.resolve(executionDir, 'public'),
-  outputDir:  path.resolve(executionDir, 'public', 'js'),
-  outputFileName: 'sample.client.js',
-  parted: true,
-  copyToDir: {
-    './public/js/' : [
-      './build',    
+  outputDir:  path.resolve(executionDir, 'build'),
+  outputFileName: 'rws.client.js',
+  parted: false,
+  partedDirUrlPrefix: '/js',
+  copyAssets: {
+    './public/js/' : [   
+      './build',   
       './src/styles/compiled/main.css'
     ]
-  },
-  devServer
+  }
 });

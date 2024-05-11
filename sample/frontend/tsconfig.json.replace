@@ -1,29 +1,23 @@
 {
-    "compilerOptions": {
-      "baseUrl": "../",
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "target": "ES2018",
-      "module": "es2022",       
-      "moduleResolution": "node",     
-      "strict": true,
-      "esModuleInterop": true,
-      "sourceMap": true,
-      "outDir": "dist",
-      "strictNullChecks": false,    
-      "allowSyntheticDefaultImports": true,   
-      "lib": ["DOM", "ESNext", "WebWorker"], 
-      "paths": {
-        // "@rws-framework/client/*": ["./node_modules/@rws-framework/client/src/*"],
-        // "@rws-framework/client/tests": ["./node_modules/@rws-framework/client/dist/src/tests/index"],  
-        // "@rws-framework/client": ["./node_modules/@rws-framework/client/dist/src/index"],            
-      }       
-    },
-    "include": [
-      "src",          
-      "[[declarationsRelPath]]"
-    ],  
-    "exclude": [
-      "../node_modules/@rws-framework/client/src/tests"    
+  "compilerOptions": {
+    "baseUrl": "../",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "ES2018",
+    "module": "es2022",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "strictNullChecks": false,
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "DOM",
+      "ESNext",
+      "WebWorker"
     ]
-  }
+  },
+  "include": [    
+  ]
+}

@@ -1,9 +1,7 @@
 import { DefaultLayout } from '../components/default-layout/component';
-import { Loader } from '../components/loader/component';
-// import { registerRWSComponents } from '@rws-framework/client'
-import { LineSplitter } from '../components/line-splitter/component';
+import { RWSClientInstance } from '@rws-framework/client/src/client';
+
 export default () => {
-    LineSplitter;
     DefaultLayout;
-    Loader;
+    RWSClientInstance.defineAllComponents();
 };

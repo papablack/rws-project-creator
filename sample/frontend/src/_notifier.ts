@@ -2,7 +2,7 @@ import { NotifyUiType, NotifyLogType } from '@rws-framework/client';
 //@ts-expect-error no-types
 import alertify from 'alertifyjs';
 
-export default function (message: string, logType: NotifyLogType, uiType: NotifyUiType = 'notification', onConfirm: (params: any) => void) {
+export default function (message: string, logType: NotifyLogType = 'info', uiType: NotifyUiType = 'notification', onConfirm: (params: any) => void = (params: any) => {}) {
     switch(uiType){
     case 'notification':
         let notifType = 'success';

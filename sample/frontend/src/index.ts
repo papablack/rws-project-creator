@@ -1,29 +1,29 @@
 import RWSClient, { RWSContainer } from '@rws-framework/client';
 
-
+import initComponents from './application/_initComponents';
 import './styles/main.scss';
 
 import routes from './routing/routes';
-
-import backendImports from './backendImport';
 import notifierMethod from './_notifier';
 
 async function initializeApp() {
     const theClient = RWSContainer().get(RWSClient);
 
-    theClient.setBackendRoutes(backendImports.backendRoutes());
     theClient.enableRouting();
     theClient.addRoutes(routes);    
     
     theClient.onInit(async () => {
-        // initComponents();
+        initComponents();
     });    
 
     theClient.setNotifier(notifierMethod);
     theClient.assignClientToBrowser();   
 
-    await theClient.onDOMLoad();
-    theClient.start((window as any)._RWS_CFG);
+    // await theClient.onDOMLoad();
+    theClient.start({
+        partedDirUrlPrefix: '/js',
+        parted: false
+    });
 }
 
 initializeApp().catch(console.error);

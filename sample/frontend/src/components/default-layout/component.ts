@@ -2,10 +2,12 @@ import { RWSViewComponent, RWSView, observable, _ROUTING_EVENT_NAME, IRoutingEve
 
 import EV from '../../events/events';
 import { RouterComponent } from '@rws-framework/client/src/components/router/component';
+import { SiteMenu } from '../site-menu/component';
 
 RouterComponent;
+SiteMenu;
 
-@RWSView('default-layout')
+@RWSView('default-layout', { ignorePackaging: true })
 class DefaultLayout extends RWSViewComponent {  
   
 

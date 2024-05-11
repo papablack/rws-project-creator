@@ -7,7 +7,7 @@ interface ILink {
   url: string;
 }
 
-@RWSView('site-menu')
+@RWSView('site-menu', { ignorePackaging: true })
 class SiteMenu extends RWSViewComponent {
 
   @observable links: ILink[] = [
