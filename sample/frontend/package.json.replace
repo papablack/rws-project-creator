@@ -6,7 +6,7 @@
         "watch": "webpack --config webpack.config.js --watch",
         "build": "webpack --config webpack.config.js --output-path ./build",
         "test": "ts-mocha -r tsconfig-paths/register --config ./tests/tsconfig.json 'tests/**/*.test.ts'",
-        "docs": "typedoc --tsconfig ./tsconfig.json",
+        "docs": "typedoc --tsconfig ./tsconfig.json"
     },
     "author": "skygate",
     "license": "ISC",
