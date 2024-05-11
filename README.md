@@ -5,7 +5,7 @@ CLI command for creating, configuring and installing RWS projects.
 ## Usage
 
 ```bash
-npm install @rws-framework/project-creator --dev
+npm install -g @rws-framework/project-creator --dev
 ```
 
 ## Usage
