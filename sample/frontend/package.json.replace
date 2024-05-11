@@ -11,18 +11,21 @@
     "author": "skygate",
     "license": "ISC",
     "dependencies": {                
+        "@rws-framework/client": "*",
         "@types/uuid": "^9.0.7",
         "alertifyjs": "^1.13.1",
         "css-loader": "^6.8.1",
         "css-minimizer-webpack-plugin": "^5.0.1",
-        "dragula": "^3.7.3",    
+        "dragula": "^3.7.3",
+        "he": "^1.2.0",
         "html-webpack-plugin": "^5.6.0",
         "lodash": "^4.17.21",
+        "md5": "^2.3.0",
         "moment": "^2.29.4",
         "partial-json-parser": "^1.2.2",
         "path": "^0.12.7",
         "resolve-url-loader": "^5.0.0",
-        "@rws-framework/client": "*",
+        "sanitize-html": "^2.12.1",
         "sass": "^1.69.5",
         "sass-loader": "^13.3.2",
         "socket.io-client": "^4.7.2",
@@ -31,8 +34,8 @@
         "ts-loader": "^9.4.4",
         "ts-transformer-keys": "^0.4.4",
         "tslib": "^2.6.2",
-        "he": "^1.2.0",
-        "sanitize-html": "^2.12.1"  
+        "uglify-js": "^3.17.4",
+        "webpack-bundle-analyzer": "^4.10.2"
     },
     "devDependencies": {
         "@types/dragula": "^3.7.4",
@@ -51,6 +54,8 @@
         "url-loader": "^4.1.1",
         "webpack": "^5.75.0",
         "webpack-cli": "^5.1.4",
-        "webpack-node-externals": "^3.0.0"
+        "webpack-node-externals": "^3.0.0",
+        "webpack-bundle-analyzer": "^4.10.1",
+        "http-server": "^14.1.1"
     }
 }

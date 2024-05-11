@@ -1,4 +1,4 @@
-import { rwsShell, rwsFS, rwsPath, RWSInputType, IOutputOpts} from '@rws-framework/console';
+import { rwsShell, rwsFS, rwsPath } from '@rws-framework/console';
 import path from 'path';
 import fs from 'fs';
 import chalk from 'chalk';
@@ -6,9 +6,6 @@ import { Options, populateEnvFiles } from '../helper/configure';
 import { askQuestions } from '../helper/ask';
 import { rwsCliVisHelpers } from '@rws-framework/console-vis';
 import _defaultOptions from '../helper/_defaults';
-import { useCallback } from 'react';
-
-const packageExecDir =  path.resolve(__dirname);
 
 const { runCommand } = rwsShell;
 const { copyFiles } = rwsFS;
@@ -22,9 +19,9 @@ const _BUILD_MODES: BuildModesHolder = {
     advanced: '_rws_advanced_build_mode',
     frontonly: '_rws_frontend_build_mode',
     backonly: '_rws_backend_build_mode'
-}
+};
 
-export default async function(output: IOutputOpts): Promise<any> 
+export default async function(output: any): Promise<any> 
 {  
     const args = output.rawArgs || [];  
 
@@ -63,7 +60,7 @@ export default async function(output: IOutputOpts): Promise<any>
     };
     opts.protocol = opts.isSSL ? 'https' : 'http';
 
-    const noBackendImport = 'const backendImports: any = {};'
+    const noBackendImport = 'const backendImports: any = {};';
 
     const buildMode: BuildMode | null = await rwsCliVisHelpers.cli.select<BuildMode>('advConfig', 'What install mode do you wish to pick?', [
         { name: _BUILD_MODES.default as string, value: _BUILD_MODES.default, message: 'Default fullstack mode (with default settings).' },
@@ -102,28 +99,28 @@ export default async function(output: IOutputOpts): Promise<any>
     let toPopulateEnvVars: string[] = [...fullEnv,...frontEnv, ...backEnv];
 
     switch(buildMode){
-        case _BUILD_MODES.advanced:                 
-            break;
+    case _BUILD_MODES.advanced:                 
+        break;
 
-        case _BUILD_MODES.frontonly:     
-            sourceRelDir = 'sample/frontend';
-            toPopulateEnvVars = [...frontEnv.map(txt => txt.replace('frontend/', '/')), `${targetDir}/src/backendImport.ts.replace`];
-            opts.declarationsRelPath = './node_modules/@rws-framework/client/declarations.d.ts'
-            ignoredFiles.push(new RegExp('.*sample\/backend\/*'));
-            opts.importBackendCode = noBackendImport;
-            callbacks.push(buildCallback);
-            break;    
+    case _BUILD_MODES.frontonly:     
+        sourceRelDir = 'sample/frontend';
+        toPopulateEnvVars = [...frontEnv.map(txt => txt.replace('frontend/', '/')), `${targetDir}/src/backendImport.ts.replace`];
+        opts.declarationsRelPath = './node_modules/@rws-framework/client/declarations.d.ts';
+        ignoredFiles.push(new RegExp('.*sample\/backend\/*'));
+        opts.importBackendCode = noBackendImport;
+        callbacks.push(buildCallback);
+        break;    
 
-        case _BUILD_MODES.backonly: 
-            sourceRelDir = 'sample/backend'
-            toPopulateEnvVars = backEnv.map(txt => txt.replace('backend/', '/'));
-            ignoredFiles.push(new RegExp('.*sample\/frontend/*'));
-            callbacks.push(buildCallback);
-            break;        
+    case _BUILD_MODES.backonly: 
+        sourceRelDir = 'sample/backend';
+        toPopulateEnvVars = backEnv.map(txt => txt.replace('backend/', '/'));
+        ignoredFiles.push(new RegExp('.*sample\/frontend/*'));
+        callbacks.push(buildCallback);
+        break;        
 
-        default:
-        case _BUILD_MODES.default:            
-            break;
+    default:
+    case _BUILD_MODES.default:            
+        break;
     }
 
     if (advConfig) {
@@ -140,7 +137,7 @@ export default async function(output: IOutputOpts): Promise<any>
     copyset[targetDir] = [path.resolve(rwsPath.findPackageDir(__dirname) + '/' + sourceRelDir)];    
 
 
-    copyFiles(copyset, ignoredFiles);
+    copyFiles(copyset);
     
  
     populateEnvFiles(toPopulateEnvVars, opts);
