@@ -94,7 +94,7 @@ export default async function(output: any): Promise<any>
     ];
 
     const callbacks: (() => Promise<void>)[] = [];
-    const buildCallback: () => Promise<void> = async () => {  await runCommand('yarn build', targetDir); };
+    const buildCallback: () => Promise<void> = async () => {  await runCommand('npm run build', targetDir); };
 
     let toPopulateEnvVars: string[] = [...fullEnv,...frontEnv, ...backEnv];
 
@@ -142,7 +142,7 @@ export default async function(output: any): Promise<any>
  
     populateEnvFiles(toPopulateEnvVars, opts);
 
-    await runCommand('yarn', targetDir);
+    await runCommand('npm install', targetDir);
 
     for (const callback of callbacks){
         await callback();

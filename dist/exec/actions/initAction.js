@@ -74,7 +74,7 @@ async function default_1(output) {
         `${targetDir}/backend/webpack.config.js.replace`,
     ];
     const callbacks = [];
-    const buildCallback = async () => { await runCommand('yarn build', targetDir); };
+    const buildCallback = async () => { await runCommand('npm run build', targetDir); };
     let toPopulateEnvVars = [...fullEnv, ...frontEnv, ...backEnv];
     switch (buildMode) {
         case _BUILD_MODES.advanced:
@@ -107,7 +107,7 @@ async function default_1(output) {
     copyset[targetDir] = [path_1.default.resolve(console_1.rwsPath.findPackageDir(__dirname) + '/' + sourceRelDir)];
     copyFiles(copyset);
     (0, configure_1.populateEnvFiles)(toPopulateEnvVars, opts);
-    await runCommand('yarn', targetDir);
+    await runCommand('npm install', targetDir);
     for (const callback of callbacks) {
         await callback();
     }
