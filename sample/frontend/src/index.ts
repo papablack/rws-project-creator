@@ -1,5 +1,6 @@
-import RWSClient, { RWSContainer } from '@rws-framework/client';
+import RWSClient, { RWSContainer, loadRWSRichWindow } from '@rws-framework/client';
 import { RWSWebsocketsPlugin, WSOptions } from '@rws-framework/nest-interconnectors';
+import { RWSBrowserRouter } from '@rws-framework/browser-router';
 import initComponents from './application/_initComponents';
 import './styles/main.scss';
 
@@ -8,9 +9,6 @@ import notifierMethod from './_notifier';
 
 async function initializeApp() {
     const theClient = RWSContainer().get(RWSClient);
-
-    theClient.enableRouting();
-    theClient.addRoutes(routes);    
     
     theClient.onInit(async () => {
         initComponents();
@@ -19,9 +17,11 @@ async function initializeApp() {
     theClient.setNotifier(notifierMethod);
 
     theClient.addPlugin(RWSWebsocketsPlugin);
+    theClient.addPlugin(RWSBrowserRouter);
 
     theClient.assignClientToBrowser();   
-    
+
+    (loadRWSRichWindow().RWS.plugins['RWSBrowserRouter'] as RWSBrowserRouter).addRoutes(routes);        
 
     // await theClient.onDOMLoad();
     theClient.start({
