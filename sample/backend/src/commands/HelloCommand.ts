@@ -9,7 +9,7 @@ class HelloCommand extends RWSCommand {
 
     async execute(params?: ICmdParams): Promise<void> {
         log(color().blue('<HELLO COMMAND>\n'));
-        log(color().green('    Thanks for installing junction trainer/chat instance, ' + params.user + '\n\n'));
+        log(color().green('    Thanks for installing RWS instance, ' + params.user + '\n\n'));
         log('    This is output of example command for RWS JS server framework.');
         log(color().red('                                   (src/commands/HelloCommand.ts).\n'));
         log(color().yellowBright('    Develop your server with "npm run dev"\n'));
