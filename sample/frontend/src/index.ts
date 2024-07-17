@@ -1,6 +1,6 @@
-import RWSClient, { RWSContainer, loadRWSRichWindow } from '@rws-framework/client';
-import { RWSWebsocketsPlugin, WSOptions } from '@rws-framework/nest-interconnectors';
-import { RWSBrowserRouter } from '@rws-framework/browser-router';
+import RWSClient, { RWSContainer, loadRWSRichWindow, RWSPlugin } from '@rws-framework/client';
+import { RWSWebsocketsPlugin } from '@rws-framework/nest-interconnectors';
+import { RWSBrowserRouter  } from '@rws-framework/browser-router';
 import initComponents from './application/_initComponents';
 import './styles/main.scss';
 
@@ -11,6 +11,7 @@ async function initializeApp() {
     const theClient = RWSContainer().get(RWSClient);
     
     theClient.onInit(async () => {
+        RWSPlugin.getPlugin<RWSBrowserRouter>(RWSBrowserRouter).addRoutes(routes);
         initComponents();
     });    
 
@@ -19,9 +20,7 @@ async function initializeApp() {
     theClient.addPlugin(RWSWebsocketsPlugin);
     theClient.addPlugin(RWSBrowserRouter);
 
-    theClient.assignClientToBrowser();   
-
-    (loadRWSRichWindow().RWS.plugins['RWSBrowserRouter'] as RWSBrowserRouter).addRoutes(routes);        
+    theClient.assignClientToBrowser();         
 
     // await theClient.onDOMLoad();
     theClient.start({
