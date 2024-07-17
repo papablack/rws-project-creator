@@ -1,4 +1,4 @@
-import RWSClient, { RWSContainer, loadRWSRichWindow, RWSPlugin } from '@rws-framework/client';
+import RWSClient, { RWSContainer, RWSPlugin } from '@rws-framework/client';
 import { RWSWebsocketsPlugin } from '@rws-framework/nest-interconnectors';
 import { RWSBrowserRouter  } from '@rws-framework/browser-router';
 import initComponents from './application/_initComponents';
