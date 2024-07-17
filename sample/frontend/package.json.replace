@@ -12,6 +12,7 @@
     "license": "ISC",
     "dependencies": {                
         "@rws-framework/client": "*",
+        "@rws-framework/nest-interconnectors": "*",
         "@types/uuid": "^9.0.7",
         "alertifyjs": "^1.13.1",
         "css-loader": "^6.8.1",

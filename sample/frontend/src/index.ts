@@ -1,5 +1,5 @@
 import RWSClient, { RWSContainer } from '@rws-framework/client';
-
+import { RWSWebsocketsPlugin, WSOptions } from '@rws-framework/nest-interconnectors';
 import initComponents from './application/_initComponents';
 import './styles/main.scss';
 
@@ -17,7 +17,11 @@ async function initializeApp() {
     });    
 
     theClient.setNotifier(notifierMethod);
+
+    theClient.addPlugin(RWSWebsocketsPlugin);
+
     theClient.assignClientToBrowser();   
+    
 
     // await theClient.onDOMLoad();
     theClient.start({

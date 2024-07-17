@@ -1,7 +1,7 @@
 import { IAppConfig } from '@rws-framework/server';
 
 import JWTUser from '../user/model';
-import { getModels } from '../models';
+import * as userModels from '../models';
 import ControllerList from '../controllers/index';
 import routes from '../routing/routes';
 import ws_routes from '../routing/sockets';
@@ -52,7 +52,7 @@ export default (): IAppConfig => {
         ssl_key: '',
         secret_key: '',
         user_class: JWTUser,
-        user_models: getModels(),
+        user_models: userModels,
         controller_list: ControllerList,
         ws_routes: ws_routes,
         http_routes: routes(),
