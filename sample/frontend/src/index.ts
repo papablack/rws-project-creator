@@ -1,4 +1,5 @@
 import RWSClient, { RWSContainer, RWSPlugin } from '@rws-framework/client';
+//@rws-fullstack-mode
 import { RWSWebsocketsPlugin } from '@rws-framework/nest-interconnectors';
 import { RWSBrowserRouter  } from '@rws-framework/browser-router';
 import initComponents from './application/_initComponents';
@@ -17,6 +18,7 @@ async function initializeApp() {
 
     theClient.setNotifier(notifierMethod);
 
+    //@rws-fullstack-mode
     theClient.addPlugin(RWSWebsocketsPlugin);
     theClient.addPlugin(RWSBrowserRouter);
 

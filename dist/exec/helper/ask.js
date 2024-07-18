@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.askQuestions = void 0;
+exports.askQuestions = askQuestions;
 const console_1 = require("@rws-framework/console");
 async function askQuestions(opts) {
     const buildDir = await console_1.RWSManagedConsole._askFor('Build dir', opts.buildDir);
@@ -22,4 +22,3 @@ async function askQuestions(opts) {
     opts.partedPrefix = partedPrefix;
     opts.serverFilePrefix = serverFilePrefix;
 }
-exports.askQuestions = askQuestions;

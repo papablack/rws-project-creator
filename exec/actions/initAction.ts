@@ -99,28 +99,28 @@ export default async function(output: any): Promise<any>
     let toPopulateEnvVars: string[] = [...fullEnv,...frontEnv, ...backEnv];
 
     switch(buildMode){
-    case _BUILD_MODES.advanced:                 
-        break;
+        case _BUILD_MODES.advanced:                 
+            break;
 
-    case _BUILD_MODES.frontonly:     
-        sourceRelDir = 'sample/frontend';
-        toPopulateEnvVars = [...frontEnv.map(txt => txt.replace('frontend/', '/')), `${targetDir}/src/backendImport.ts.replace`];
-        opts.declarationsRelPath = './node_modules/@rws-framework/client/declarations.d.ts';
-        ignoredFiles.push(new RegExp('.*sample\/backend\/*'));
-        opts.importBackendCode = noBackendImport;
-        callbacks.push(buildCallback);
-        break;    
+        case _BUILD_MODES.frontonly:     
+            sourceRelDir = 'sample/frontend';
+            toPopulateEnvVars = [...frontEnv.map(txt => txt.replace('frontend/', '/')), `${targetDir}/src/backendImport.ts.replace`];
+            opts.declarationsRelPath = './node_modules/@rws-framework/client/declarations.d.ts';
+            ignoredFiles.push(new RegExp('.*sample\/backend\/*'));
+            opts.importBackendCode = noBackendImport;
+            callbacks.push(buildCallback);
+            break;    
 
-    case _BUILD_MODES.backonly: 
-        sourceRelDir = 'sample/backend';
-        toPopulateEnvVars = backEnv.map(txt => txt.replace('backend/', '/'));
-        ignoredFiles.push(new RegExp('.*sample\/frontend/*'));
-        callbacks.push(buildCallback);
-        break;        
+        case _BUILD_MODES.backonly: 
+            sourceRelDir = 'sample/backend';
+            toPopulateEnvVars = backEnv.map(txt => txt.replace('backend/', '/'));
+            ignoredFiles.push(new RegExp('.*sample\/frontend/*'));
+            callbacks.push(buildCallback);
+            break;        
 
-    default:
-    case _BUILD_MODES.default:            
-        break;
+        default:
+        case _BUILD_MODES.default:            
+            break;
     }
 
     if (advConfig) {
@@ -136,11 +136,24 @@ export default async function(output: any): Promise<any>
     
     copyset[targetDir] = [path.resolve(rwsPath.findPackageDir(__dirname) + '/' + sourceRelDir)];    
 
-
     copyFiles(copyset);
-    
  
     populateEnvFiles(toPopulateEnvVars, opts);
+
+    if(buildMode === _BUILD_MODES.frontonly){
+        const fullstackCommentRegEx = /.*\/\/@rws-fullstack-mode\r?\n[^\r\n]*(\r?\n)?/gm;
+        const indexFrontFilePath = path.resolve(targetDir, 'src', 'index.ts');
+
+        const removeFullstackFilesPaths = [
+            indexFrontFilePath
+        ]
+
+        for (const filepath of removeFullstackFilesPaths){
+            const orgFileContent: string = fs.readFileSync(filepath, 'utf-8');
+            const replaced = orgFileContent.replace(fullstackCommentRegEx, '');            
+            fs.writeFileSync(filepath, replaced);
+        }        
+    }    
 
     await runCommand('npm install', targetDir);
 

@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = default_1;
 const console_1 = require("@rws-framework/console");
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
@@ -107,10 +108,21 @@ async function default_1(output) {
     copyset[targetDir] = [path_1.default.resolve(console_1.rwsPath.findPackageDir(__dirname) + '/' + sourceRelDir)];
     copyFiles(copyset);
     (0, configure_1.populateEnvFiles)(toPopulateEnvVars, opts);
+    if (buildMode === _BUILD_MODES.frontonly) {
+        const fullstackCommentRegEx = /.*\/\/@rws-fullstack-mode\r?\n[^\r\n]*(\r?\n)?/gm;
+        const indexFrontFilePath = path_1.default.resolve(targetDir, 'src', 'index.ts');
+        const removeFullstackFilesPaths = [
+            indexFrontFilePath
+        ];
+        for (const filepath of removeFullstackFilesPaths) {
+            const orgFileContent = fs_1.default.readFileSync(filepath, 'utf-8');
+            const replaced = orgFileContent.replace(fullstackCommentRegEx, '');
+            fs_1.default.writeFileSync(filepath, replaced);
+        }
+    }
     await runCommand('npm install', targetDir);
     for (const callback of callbacks) {
         await callback();
     }
     return output.program;
 }
-exports.default = default_1;

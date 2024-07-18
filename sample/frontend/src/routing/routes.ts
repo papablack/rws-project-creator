@@ -1,6 +1,6 @@
 
 
-import { renderRouteComponent } from '@rws-framework/client';
+import { renderRouteComponent } from '@rws-framework/browser-router';
 import { HomePage } from '../pages/home/component';
 import { ServersPage } from '../pages/servers/component';
 
