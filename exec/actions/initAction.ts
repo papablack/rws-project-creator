@@ -155,6 +155,10 @@ export default async function(output: any): Promise<any>
         }        
     }    
 
+    if(!fs.existsSync(path.resolve(targetDir, 'build'))){
+        fs.mkdirSync(path.resolve(targetDir, 'build'));
+    }
+
     await runCommand('npm install', targetDir);
 
     for (const callback of callbacks){
